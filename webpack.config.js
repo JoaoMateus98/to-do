@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    form: './src/form-builder.js'
+  },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -13,9 +16,6 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
-    client: {
-      reconnect: true
-    },
   },
   plugins: [
     new HtmlWebpackPlugin({

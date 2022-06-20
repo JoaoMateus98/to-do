@@ -1,9 +1,12 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 :root {
     --test-border: 2px solid red;
+    --button-color: #41c5c3;
 }
 
 body, html {
@@ -16,14 +19,36 @@ body {
     display: flex;
 }
 
+body > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1[id$="title"] {
+    margin: 2rem auto auto auto;
+    height: fit-content;
+    width: fit-content;
+    border-bottom: 2px solid black;
+}
+
 #projects-div {
-    border: var(--test-border);
+    border-right: 2px solid black;
     width: 20%;
     flex-shrink: 0;
 }
 
 #todo-div {
-    flex: 1 1 auto;
-    border: var(--test-border);
+    flex-grow: 1;
+}
+
+#add-project-button {
+    margin: auto 1rem 1rem auto;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: var(--button-color);
 }
 
