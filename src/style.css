@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --test-border: 2px solid red;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+}
+
+#projects-div {
+    border: var(--test-border);
+    width: 20%;
+    flex-shrink: 0;
+}
+
+#todo-div {
+    flex: 1 1 auto;
+    border: var(--test-border);
+}
+
