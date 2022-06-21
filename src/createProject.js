@@ -10,39 +10,77 @@ import './dom-builder';
     function openProjectForm() {
         const CreateElements = (() => {
             // divs
-            const formWrapper = document.createElement('div'); // blocks input
-            const formContainer = document.createElement('div');
+            const formWrapper =    {element: document.createElement('div'), // blocks input
+                                    id: 'project-form-wrapper'};
 
-            // buttons
-            const closeForm = document.createElement('button');
+            const formContainer =  {element: document.createElement('div'),
+                                    id: 'project-form-container'};
+
+            // form
+            const projectForm =    {element: document.createElement('form'),
+                                    id: 'project-form',
+                                    action: '#'};
+            
+            const textInput =      {element: document.createElement('input'),
+                                    id: 'project-name-input',
+                                    type: 'text',
+                                    placeholder: 'Some Project',
+                                    name: 'project-name'};
+
+            const textLabel =      {element: document.createElement('label'),
+                                    id: 'project-name-label',
+                                    for: textInput.id,
+                                    innerText: 'Project Name'};                        
+
+            const closeForm =      {element: document.createElement('button'),
+                                    id: 'project-close-form',
+                                    innerText: 'X',
+                                    type: 'button'};
+
+            const elementsArray =  [formWrapper, formContainer, projectForm, // because attributes
+                                    textLabel, textInput, closeForm];
 
             return {
+                elementsArray,
                 formWrapper,
                 formContainer,
-                closeForm,
+                projectForm,
+                textLabel,
+                textInput,
+                closeForm
             }
         })();
 
-        (() => { // add ids to elements
-            // divs
-            CreateElements.formWrapper.setAttribute('id', 'project-form-wrapper');
-            CreateElements.formContainer.setAttribute('id', 'project-form-container');
-
-            //buttons
-            CreateElements.closeForm.setAttribute('id', 'project-close-form');
+        (() => { // sets all attributes
+            CreateElements.elementsArray.forEach(currentElement => {
+                currentElement.element.textContent = currentElement.innerText; // inner text
+                Object.keys(currentElement).forEach(key => { // attibutes
+                    if (key === 'element'|| key === 'innerText') {
+                        return;
+                    } else {
+                        currentElement.element.setAttribute(key, currentElement[key]);
+                    }
+                });
+            });
         })();
 
-        (() => { // add text content
-            CreateElements.closeForm.textContent = 'X';
+        (() => { // append elements to form
+            CreateElements.projectForm.element.append(CreateElements.textLabel.element, 
+                                                        CreateElements.textInput.element,
+                                                        CreateElements.closeForm.element);
         })();
 
         (() => { // append elements to DOM
-            document.body.appendChild(CreateElements.formWrapper);
-            CreateElements.formWrapper.appendChild(CreateElements.formContainer);
-            CreateElements.formContainer.append(CreateElements.closeForm);
+            document.body.appendChild(CreateElements.formWrapper.element);
+            CreateElements.formWrapper.element.appendChild(CreateElements.formContainer.element);
+            CreateElements.formContainer.element.appendChild(CreateElements.projectForm.element);
         })();
 
-        CreateElements.closeForm.addEventListener('click', ()=> {
+
+        CreateElements.closeForm.element.addEventListener('click', () => { // grabs input
+            const formData = new FormData(CreateElements.projectForm.element);
+            const projectName = formData.get(CreateElements.textInput.name);
+            console.log(projectName);
             closeProjectForm();
         });
     };
@@ -57,5 +95,5 @@ import './dom-builder';
         }
 
         document.body.removeChild(formWrapper);
-    }
+    };
 })();
