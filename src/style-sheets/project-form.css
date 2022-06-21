@@ -12,7 +12,18 @@
 }
 
 #project-form-container {
+    display: flex;
     border: var(--border-test);
-    width: 50%;
-    height: 50%;
+    width: 50rem;
+    height: 30rem;
+}
+
+#project-close-form {
+    margin: auto 1rem 1rem auto;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: red;
 }
