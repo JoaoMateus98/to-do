@@ -34,8 +34,8 @@ import './dom-builder';
 
             const closeForm =      {element: document.createElement('button'),
                                     id: 'project-close-form',
-                                    innerText: 'X',
-                                    type: 'button'};
+                                    type: 'button',
+                                    innerText: 'X'};
 
             const elementsArray =  [formWrapper, formContainer, projectForm, // because attributes
                                     textLabel, textInput, closeForm];
@@ -75,7 +75,6 @@ import './dom-builder';
             CreateElements.formWrapper.element.appendChild(CreateElements.formContainer.element);
             CreateElements.formContainer.element.appendChild(CreateElements.projectForm.element);
         })();
-
 
         CreateElements.closeForm.element.addEventListener('click', () => { // grabs input
             const formData = new FormData(CreateElements.projectForm.element);
