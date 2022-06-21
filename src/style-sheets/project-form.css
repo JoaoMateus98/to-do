@@ -1,0 +1,18 @@
+:root {
+    --border-test: 2px solid red;
+}
+
+#project-form-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#project-form-container {
+    border: var(--border-test);
+    width: 50%;
+    height: 50%;
+}
