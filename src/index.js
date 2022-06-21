@@ -1,2 +1,2 @@
-import './style.css';
-require('./dom-builder.js');
+import './style-sheets/index.css';
+import './dom-builder.js';

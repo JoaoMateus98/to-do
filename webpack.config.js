@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    form: './src/form-builder.js'
+    createProject: './src/createProject.js'
   },
   output: {
     filename: '[name].bundle.js',
