@@ -3,6 +3,7 @@
 }
 
 #project-form-wrapper {
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     height: 100%;
     width: 100%;
@@ -12,18 +13,57 @@
 }
 
 #project-form-container {
-    display: flex;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: white;
     border: var(--border-test);
-    width: 50rem;
-    height: 30rem;
+    width: 40rem;
+    height: 20rem;
 }
 
-#project-close-form {
-    margin: auto 1rem 1rem auto;
-    cursor: pointer;
+#project-form {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+}
+
+#project-form > * {
+    font-weight: 600;
+    align-self: center;
+    justify-self: center;
+}
+
+#project-name-label {
+    font-size: 3rem;
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+}
+
+#project-name-input {
     font-size: 2rem;
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+}
+
+
+
+#project-close-form {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+    border: 0;
+    cursor: pointer;
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    background-color: red;
+    background-color: transparent;
+}
+
+#project-close-img {
+    border-radius: 50%;
+    border: 2px outset gray;
+    height: inherit;
+    background-color: lawngreen;
 }

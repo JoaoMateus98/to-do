@@ -1,45 +1,57 @@
 const CreateElements = (() => {
     // divs
-    const projectsDiv = document.createElement('div');
-    const todoDiv = document.createElement('div');
+    const projectsDiv =     {element: document.createElement('div'),
+                             id: 'projects-div'};
+
+    const todoDiv =         {element: document.createElement('div'),
+                             id: 'todo-div'};
 
     // text
-    const projectsTitle = document.createElement('h1');
-    const todoTitle = document.createElement('h1');
+    const projectsTitle =   {element: document.createElement('h1'),
+                             id: 'project-title',
+                             innerText: 'Projects'};
+
+    const todoTitle =       {element: document.createElement('h1'),
+                             id: 'todo-title',
+                             innerText: 'Todo Placeholder'};
 
     //button
-    const addProject = document.createElement('button');
+    const addProjectImg =   {element: document.createElement('img'),
+                                    id: 'add-project-img',
+                                    src: require('./icons/add.svg')};  
 
+    const addProject =      {element: document.createElement('button'),
+                             id: 'add-project-button'};
+
+    const elementsArray =   [projectsDiv, todoDiv, projectsTitle,
+                             todoTitle, addProjectImg, addProject]
     return {
+        elementsArray,
         projectsDiv,
         todoDiv,
         projectsTitle,
         todoTitle,
+        addProjectImg,
         addProject
     }
 }) ();
 
-(() => { // add ids to elements
-    // divs
-    CreateElements.projectsDiv.setAttribute('id', 'projects-div');
-    CreateElements.todoDiv.setAttribute('id', 'todo-div');
-
-    // text 
-    CreateElements.projectsTitle.setAttribute('id', 'project-title');
-    CreateElements.todoTitle.setAttribute('id', 'todo-title');
-
-    //button
-    CreateElements.addProject.setAttribute('id', 'add-project-button');
-})();
-
-(() => { // add text content
-    CreateElements.projectsTitle.textContent = 'Projects';
-    CreateElements.todoTitle.textContent = 'Todo Placeholder'; // will update based on projects name
-    CreateElements.addProject.textContent = '+';
-})();
+(() => { // sets all attributes
+            CreateElements.elementsArray.forEach(currentElement => {
+                currentElement.element.textContent = currentElement.innerText; // inner text
+                Object.keys(currentElement).forEach(key => { // attibutes
+                    if (key === 'element'|| key === 'innerText') {
+                        return;
+                    } else {
+                        currentElement.element.setAttribute(key, currentElement[key]);
+                    }
+                });
+            });
+        })();
 
 (() => { // append elements to DOM
-    document.body.append(CreateElements.projectsDiv, CreateElements.todoDiv);
-    CreateElements.projectsDiv.append(CreateElements.projectsTitle, CreateElements.addProject);
-    CreateElements.todoDiv.append(CreateElements.todoTitle);
+    document.body.append(CreateElements.projectsDiv.element, CreateElements.todoDiv.element);
+    CreateElements.addProject.element.appendChild(CreateElements.addProjectImg.element);
+    CreateElements.projectsDiv.element.append(CreateElements.projectsTitle.element, CreateElements.addProject.element);
+    CreateElements.todoDiv.element.append(CreateElements.todoTitle.element);
 })();

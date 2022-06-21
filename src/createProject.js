@@ -30,15 +30,18 @@ import './dom-builder';
             const textLabel =      {element: document.createElement('label'),
                                     id: 'project-name-label',
                                     for: textInput.id,
-                                    innerText: 'Project Name'};                        
+                                    innerText: 'Project Name:'};
+
+            const closeFormImg =   {element: document.createElement('img'),
+                                    id: 'project-close-img',
+                                    src: require('./icons/check.svg')};                      
 
             const closeForm =      {element: document.createElement('button'),
                                     id: 'project-close-form',
-                                    type: 'button',
-                                    innerText: 'X'};
+                                    type: 'button'};
 
             const elementsArray =  [formWrapper, formContainer, projectForm, // because attributes
-                                    textLabel, textInput, closeForm];
+                                    textLabel, textInput, closeFormImg, closeForm];
 
             return {
                 elementsArray,
@@ -47,6 +50,7 @@ import './dom-builder';
                 projectForm,
                 textLabel,
                 textInput,
+                closeFormImg,
                 closeForm
             }
         })();
@@ -65,6 +69,7 @@ import './dom-builder';
         })();
 
         (() => { // append elements to form
+            CreateElements.closeForm.element.appendChild(CreateElements.closeFormImg.element);
             CreateElements.projectForm.element.append(CreateElements.textLabel.element, 
                                                         CreateElements.textInput.element,
                                                         CreateElements.closeForm.element);
