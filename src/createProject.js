@@ -102,9 +102,9 @@ let projectsArray = [];
             const projectName = formData.get(CreateElements.textInput.name);
             if (projectName.length === 0) {
                 alert('Project name must be longer than 1 character!')
-            } else {
+            } else { // adds to projects array
                 projectsArray.push(BuildProject(projectName));
-                console.log(projectsArray);
+                resetProjectList(projectsArray);
                 closeProjectForm();
             };
         });
@@ -124,4 +124,21 @@ let projectsArray = [];
 
         document.body.removeChild(formWrapper);
     };
+
+    function resetProjectList(projectsArray) {
+        const projectsContainer = document.getElementById('projects-container');
+
+        let child = projectsContainer.lastElementChild;
+        while (child) {
+            projectsContainer.removeChild(child);
+            child = projectsContainer.lastElementChild;
+        }
+
+        projectsArray.forEach(element => {
+            projectsContainer.appendChild(element);
+        })
+    };
 })();
+
+
+export default projectsArray;

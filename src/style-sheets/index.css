@@ -45,6 +45,13 @@ h1[id$="title"] {
     padding: .5rem;
 }
 
+#projects-container > button {
+    cursor: pointer;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
 #add-project-button {
     margin: auto 1rem 1rem auto;
     cursor: pointer;
