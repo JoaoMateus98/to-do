@@ -18,6 +18,10 @@ const BuildProject = (projectName) => {
         });
     })();
 
+    CreateElement.element.addEventListener('click', () => {
+        
+    });
+
     return CreateElement.element;
 }
 

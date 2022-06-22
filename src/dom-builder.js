@@ -1,3 +1,5 @@
+import './style-sheets/index.css';
+
 const CreateElements = (() => {
     // divs
     const projectsDiv =         {element: document.createElement('div'),
