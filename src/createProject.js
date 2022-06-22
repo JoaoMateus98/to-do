@@ -10,38 +10,48 @@ import './dom-builder';
     function openProjectForm() {
         const CreateElements = (() => {
             // divs
-            const formWrapper =    {element: document.createElement('div'), // blocks input
-                                    id: 'project-form-wrapper'};
+            const formWrapper =     {element: document.createElement('div'), // blocks input
+                                     id: 'project-form-wrapper'};
 
-            const formContainer =  {element: document.createElement('div'),
-                                    id: 'project-form-container'};
+            const formContainer =   {element: document.createElement('div'),
+                                     id: 'project-form-container'};
 
             // form
-            const projectForm =    {element: document.createElement('form'),
-                                    id: 'project-form',
-                                    action: '#'};
+            const projectForm =     {element: document.createElement('form'),
+                                     id: 'project-form',
+                                     action: '#'};
             
-            const textInput =      {element: document.createElement('input'),
-                                    id: 'project-name-input',
-                                    type: 'text',
-                                    placeholder: 'Some Project',
-                                    name: 'project-name'};
+            const textInput =       {element: document.createElement('input'),
+                                     id: 'project-name-input',
+                                     type: 'text',
+                                     placeholder: 'Some Project',
+                                     name: 'project-name'};
 
-            const textLabel =      {element: document.createElement('label'),
-                                    id: 'project-name-label',
-                                    for: textInput.id,
-                                    innerText: 'Project Name:'};
+            const textLabel =       {element: document.createElement('label'),
+                                     id: 'project-name-label',
+                                     for: textInput.id,
+                                     innerText: 'Project Name:'};
 
-            const closeFormImg =   {element: document.createElement('img'),
-                                    id: 'project-close-img',
-                                    src: require('./icons/check.svg')};                      
+            // buttons
+            const submitFormImg =   {element: document.createElement('img'),
+                                     id: 'project-submit-img',
+                                     src: require('./icons/check.svg')};                      
 
-            const closeForm =      {element: document.createElement('button'),
-                                    id: 'project-close-form',
-                                    type: 'button'};
+            const submitForm =      {element: document.createElement('button'),
+                                     id: 'project-submit-form',
+                                     type: 'button'};
+
+            const cancelFormImg =   {element: document.createElement('img'),
+                                     id: 'project-cancel-img',
+                                     src: require('./icons/close.svg')};                      
+
+            const cancelForm =      {element: document.createElement('button'),
+                                     id: 'project-cancel-form',
+                                     type: 'button'};
 
             const elementsArray =  [formWrapper, formContainer, projectForm, // because attributes
-                                    textLabel, textInput, closeFormImg, closeForm];
+                                    textLabel, textInput, submitFormImg, submitForm,
+                                    cancelFormImg, cancelForm];
 
             return {
                 elementsArray,
@@ -50,8 +60,10 @@ import './dom-builder';
                 projectForm,
                 textLabel,
                 textInput,
-                closeFormImg,
-                closeForm
+                submitFormImg,
+                submitForm,
+                cancelFormImg,
+                cancelForm
             }
         })();
 
@@ -69,10 +81,12 @@ import './dom-builder';
         })();
 
         (() => { // append elements to form
-            CreateElements.closeForm.element.appendChild(CreateElements.closeFormImg.element);
+            CreateElements.submitForm.element.appendChild(CreateElements.submitFormImg.element);
+            CreateElements.cancelForm.element.appendChild(CreateElements.cancelFormImg.element);
             CreateElements.projectForm.element.append(CreateElements.textLabel.element, 
                                                         CreateElements.textInput.element,
-                                                        CreateElements.closeForm.element);
+                                                        CreateElements.submitForm.element,
+                                                        CreateElements.cancelForm.element);
         })();
 
         (() => { // append elements to DOM
@@ -81,14 +95,21 @@ import './dom-builder';
             CreateElements.formContainer.element.appendChild(CreateElements.projectForm.element);
         })();
 
-        CreateElements.closeForm.element.addEventListener('click', () => { // grabs input
+        CreateElements.submitForm.element.addEventListener('click', () => { // grabs input
             const formData = new FormData(CreateElements.projectForm.element);
             const projectName = formData.get(CreateElements.textInput.name);
             console.log(projectName);
+            if (projectName.length === 0) {
+                alert('Project name must be longer than 1 character!')
+            } else {
+                closeProjectForm();
+            };
+        });
+
+        CreateElements.cancelForm.element.addEventListener('click', () => { // closes pop up
             closeProjectForm();
         });
     };
-
     function closeProjectForm() {
         const formWrapper = document.getElementById('project-form-wrapper');
 

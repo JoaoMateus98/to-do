@@ -21,7 +21,7 @@ const CreateElements = (() => {
                                     src: require('./icons/add.svg')};  
 
     const addProject =      {element: document.createElement('button'),
-                             id: 'add-project-button'};
+                             id: 'add-project-button'};                  
 
     const elementsArray =   [projectsDiv, todoDiv, projectsTitle,
                              todoTitle, addProjectImg, addProject]

@@ -48,6 +48,12 @@ h1[id$="title"] {
     font-size: 2rem;
     height: 3rem;
     width: 3rem;
+    border: 0;
+    background-color: transparent;
+}
+
+#add-project-img {
+    border: 2px solid black;
     border-radius: 50%;
     background-color: var(--button-color);
 }

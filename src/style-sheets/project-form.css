@@ -16,8 +16,7 @@
     border-radius: 1rem;
     padding: 2rem;
     background-color: white;
-    border: var(--border-test);
-    width: 40rem;
+    width: fit-content;
     height: 20rem;
 }
 
@@ -48,12 +47,7 @@
     grid-column: 1 / -1;
 }
 
-
-
-#project-close-form {
-    grid-row: 3 / 4;
-    grid-column: 3 / 4;
-    border: 0;
+#project-form > button {
     cursor: pointer;
     height: 3rem;
     width: 3rem;
@@ -61,9 +55,28 @@
     background-color: transparent;
 }
 
-#project-close-img {
+#project-submit-form {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+    border: 0;
+}
+
+#project-submit-img {
     border-radius: 50%;
     border: 2px outset gray;
     height: inherit;
     background-color: lawngreen;
+}
+
+#project-cancel-form {
+    grid-row: 3 / 4;
+    grid-column: 4 / 5;
+    border: 0;
+}
+
+#project-cancel-img {
+    border-radius: 50%;
+    border: 2px outset gray;
+    height: inherit;
+    background-color: rgb(235, 52, 52);
 }
