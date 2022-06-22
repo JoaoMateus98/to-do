@@ -19,10 +19,11 @@ const BuildProject = (projectName) => {
     })();
 
     CreateElement.element.addEventListener('click', () => {
-        
+        const todoTitle = document.getElementById('todo-title');
+        todoTitle.textContent = projectName;
     });
 
     return CreateElement.element;
-}
+};
 
 export default BuildProject;

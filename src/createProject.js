@@ -6,6 +6,7 @@ let projectsArray = [];
 (() => { // project handler
     const addProject = document.getElementById('add-project-button');
     addProject.addEventListener('click', () => {
+        console.log('hello');
         openProjectForm();
     });
 
@@ -96,7 +97,7 @@ let projectsArray = [];
             CreateElements.formWrapper.element.appendChild(CreateElements.formContainer.element);
             CreateElements.formContainer.element.appendChild(CreateElements.projectForm.element);
         })();
-
+        
         CreateElements.submitForm.element.addEventListener('click', () => { // grabs input
             const formData = new FormData(CreateElements.projectForm.element);
             const projectName = formData.get(CreateElements.textInput.name);

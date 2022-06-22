@@ -41,7 +41,7 @@ const CreateElements = (() => {
         addProjectImg,
         addProject
     }
-}) ();
+})();
 
 (() => { // sets all attributes
             CreateElements.elementsArray.forEach(currentElement => {
@@ -54,7 +54,7 @@ const CreateElements = (() => {
                     }
                 });
             });
-        })();
+})();
 
 (() => { // append elements to DOM
     document.body.append(CreateElements.projectsDiv.element, CreateElements.todoDiv.element);
