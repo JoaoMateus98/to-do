@@ -1,6 +1,8 @@
 import './style-sheets/project-form.css';
 import './dom-builder';
+import BuildProject from './project-builder';
 
+let projectsArray = [];
 (() => { // project handler
     const addProject = document.getElementById('add-project-button');
     addProject.addEventListener('click', () => {
@@ -98,10 +100,11 @@ import './dom-builder';
         CreateElements.submitForm.element.addEventListener('click', () => { // grabs input
             const formData = new FormData(CreateElements.projectForm.element);
             const projectName = formData.get(CreateElements.textInput.name);
-            console.log(projectName);
             if (projectName.length === 0) {
                 alert('Project name must be longer than 1 character!')
             } else {
+                projectsArray.push(BuildProject(projectName));
+                console.log(projectsArray);
                 closeProjectForm();
             };
         });
