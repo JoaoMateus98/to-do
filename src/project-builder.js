@@ -1,29 +1,33 @@
+import projectsArray from "./createProject";
+
 const BuildProject = (projectName) => {
-    const CreateElement = (() => {
-        const projectDiv = {element: document.createElement('button'),
-                            innerText: projectName,
-                            id: `${projectName}-button`};
-        
-        return projectDiv;
-    })();
+  const CreateElement = (() => {
+    const projectDiv = {
+      element: document.createElement("button"),
+      innerText: projectName,
+      id: `${projectName}-button`,
+    };
 
-    (() => { // set attributes
-        CreateElement.element.textContent = CreateElement.innerText;
-        Object.keys(CreateElement.element).forEach(key => {
-            if (key === 'element' || key === 'innerText') {
-                return;
-            } else {
-                CreateElement.element.setAttribute(key, CreateElement.element[key]);
-            };
-        });
-    })();
+    return projectDiv;
+  })();
 
-    CreateElement.element.addEventListener('click', () => {
-        const todoTitle = document.getElementById('todo-title');
-        todoTitle.textContent = projectName;
+  (() => {
+    // set attributes
+    CreateElement.element.textContent = CreateElement.innerText;
+    Object.keys(CreateElement.element).forEach((key) => {
+      if (key === "element" || key === "innerText") {
+      } else {
+        CreateElement.element.setAttribute(key, CreateElement.element[key]);
+      }
     });
+  })();
 
-    return CreateElement.element;
+  CreateElement.element.addEventListener("click", () => {
+    const todoTitle = document.getElementById("todo-title");
+    todoTitle.textContent = projectName;
+  });
+
+  return CreateElement.element;
 };
 
 export default BuildProject;

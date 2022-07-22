@@ -1,82 +1,81 @@
 :root {
-    --border-test: 2px solid red;
+  --border-test: 2px solid red;
 }
 
 #project-form-wrapper {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #project-form-container {
-    border-radius: 1rem;
-    padding: 2rem;
-    background-color: white;
-    width: fit-content;
-    height: 20rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: white;
+  width: fit-content;
+  height: 20rem;
 }
 
 #project-form {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 #project-form > * {
-    font-weight: 600;
-    align-self: center;
-    justify-self: center;
+  font-weight: 600;
+  align-self: center;
+  justify-self: center;
 }
 
 #project-name-label {
-    font-size: 3rem;
-    grid-row: 1 / 2;
-    grid-column: 1 / -1;
+  font-size: 3rem;
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
 }
 
 #project-name-input {
-    font-size: 2rem;
-    grid-row: 2 / 3;
-    grid-column: 1 / -1;
+  font-size: 2rem;
+  grid-row: 2 / 3;
+  grid-column: 1 / -1;
 }
 
 #project-form > button {
-    cursor: pointer;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    background-color: transparent;
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: transparent;
 }
 
 #project-submit-form {
-    grid-row: 3 / 4;
-    grid-column: 3 / 4;
-    border: 0;
+  grid-row: 3 / 4;
+  grid-column: 3 / 4;
+  border: 0;
 }
 
 #project-submit-img {
-    border-radius: 50%;
-    border: 2px outset gray;
-    height: inherit;
-    background-color: lawngreen;
+  border-radius: 50%;
+  border: 2px outset gray;
+  height: inherit;
+  background-color: lawngreen;
 }
 
 #project-cancel-form {
-    grid-row: 3 / 4;
-    grid-column: 4 / 5;
-    border: 0;
+  grid-row: 3 / 4;
+  grid-column: 4 / 5;
+  border: 0;
 }
 
 #project-cancel-img {
-    border-radius: 50%;
-    border: 2px outset gray;
-    height: inherit;
-    background-color: rgb(235, 52, 52);
+  border-radius: 50%;
+  border: 2px outset gray;
+  height: inherit;
+  background-color: rgb(235, 52, 52);
 }
